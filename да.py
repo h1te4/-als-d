@@ -1,16 +1,18 @@
 import os
 import threading
+import asyncio
 from flask import Flask, render_template
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, ContextTypes
+from config import TOKEN # Импортируем токен из config.py
 
 # --- Конфигурация ---
-TOKEN = "8157726360:AAEkY_UW7JMATD2G0cuFBs60ZwJRHmAcy54"
-WEB_APP_URL = "https://h1te4.github.io/test/index.html"  # Замените на URL вашего веб-приложения
+WEB_APP_URL = "https://h1te4.github.io/-als-d/"  # Замените на URL вашего веб-приложения
 # ---------------------
 
 # --- Веб-сервер Flask ---
-app = Flask(__name__)
+# Указываем, что папка с шаблонами - это текущая директория ('.')
+app = Flask(__name__, template_folder='.')
 
 @app.route('/')
 def index():
@@ -36,6 +38,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 def run_bot():
     """Запускает бота."""
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+
     application = Application.builder().token(TOKEN).build()
     application.add_handler(CommandHandler("start", start))
     application.run_polling()
