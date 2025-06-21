@@ -7,7 +7,7 @@ from telegram.ext import Application, CommandHandler, ContextTypes
 from config import TOKEN # Импортируем токен из config.py
 
 # --- Конфигурация ---
-WEB_APP_URL = "https://h1te4.github.io/-als-d/"  # Замените на URL вашего веб-приложения
+WEB_APP_URL = "https://h1te4.github.io/-als-d/index.html"  # Замените на URL вашего веб-приложения
 # ---------------------
 
 # --- Веб-сервер Flask ---
