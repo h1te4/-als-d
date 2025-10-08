@@ -9,7 +9,7 @@ from config import TOKEN # Импортируем токен из config.py
 # --- Конфигурация ---
 WEB_APP_URL = "https://h1te4.github.io/-als-d/index.html"  # Замените на URL вашего веб-приложения
 # ---------------------
-
+sss
 # --- Веб-сервер Flask ---
 # Указываем, что папка с шаблонами - это текущая директория ('.')
 app = Flask(__name__, template_folder='.')
@@ -18,7 +18,7 @@ app = Flask(__name__, template_folder='.')
 def index():
     return render_template('index.html')
 
-def run_flask():
+def run_flask():ss
     # Используйте 0.0.0.0, чтобы сделать сервер доступным извне
     app.run(host='0.0.0.0', port=8080)
 # ------------------------
